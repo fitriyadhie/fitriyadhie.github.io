@@ -15,12 +15,27 @@
   		animatingQuantity = false;
 		initCartEvents();
 
-
 		function initCartEvents() {
+			console.log("asdzzzzzzz")
+			//callList();
 			// add products to cart
+
+			const capture = {
+				passive : true
+			  };
+			  
 			for(var i = 0; i < cartAddBtns.length; i++) {(function(i){
+				console.log(cartAddBtns[i])
 				cartAddBtns[i].addEventListener('click', addToCart);
+				console.log("asd")
+				//$(this).on('click', addToCart);
 			})(i);}
+			// $(".js-cd-add-to-cart").each(function(){
+			// 	console.log(cartAddBtns)
+			// 			// Test if the div element is empty
+			// 			$(document).on('click', addToCart);
+			// 		});
+			
 
 			// open/close cart
 			cart[0].getElementsByClassName('cd-cart__trigger')[0].addEventListener('click', function(event){

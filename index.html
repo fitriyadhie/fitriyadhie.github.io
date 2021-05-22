@@ -82,56 +82,11 @@
       <p>...</p>
     </div>
 
-<div class="">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody id="demo"></tbody>
-  </table>
-</div> 
+    <table class="table table-striped">
+      <tbody id="menu"></tbody>
+    </table>
   
-<script>
-                      
-let xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function () {
-  if (this.readyState == 4 && this.status == 200) {
-    let data = JSON.parse(this.responseText).feed.entry;
 
-    let i;
-    for (i = 0; i < data.length; i++) {
-      let name = data[i]["gsx$_cn6ca"]["$t"];
-      let age = data[i]["gsx$_cokwr"]["$t"];
-      let email = data[i]["gsx$_cpzh4"]["$t"];
-
-      document.getElementById("demo").innerHTML +=
-        "<tr>" +
-        "<td>" +
-        name +
-        "</td>" +
-        "<td>" +
-        age +
-        "</td>" +
-        "<td>" +
-        email +
-        "</td>" +
-        "</tr>";
-    }
-  }
-};
-
-xmlhttp.open(
-  "GET",
-  "https://spreadsheets.google.com/feeds/list/1ZIptCxioF5KBj0T76F3lILNvne35EhLhFrdrNccOC8A/od6/public/values?alt=json",
-  true
-);
-xmlhttp.send();
-                      
-</script>
 
     <!-- Cart -->
 
@@ -178,13 +133,16 @@ xmlhttp.send();
         </div>
       </div> <!-- .cd-cart__content -->
     </div> <!-- cd-cart -->
-    <script src="assets/cart/js/util.js"></script> <!-- util functions included in the CodyHouse framework -->
-    <script src="assets/cart/js/main.js"></script> 
-    <!-- End Cart -->
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Cart js -->
+    <script src="assets/cart/js/util.js"></script> <!-- util functions included in the CodyHouse framework -->
+    <script src="assets/cart/js/main.js"></script> 
+    <!-- End js Cart -->
+    <script src="assets/js/script.js"></script> 
   </body>
 </html>
