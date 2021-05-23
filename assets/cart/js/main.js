@@ -1,4 +1,4 @@
-function goesss(){
+(function(){
   // Add to Cart Interaction - by CodyHouse.co
   var cart = document.getElementsByClassName('js-cd-cart');
   if(cart.length > 0) {
@@ -16,27 +16,12 @@ function goesss(){
 		initCartEvents();
 
 		function initCartEvents() {
-			console.log("asdzzzzzzz")
-			//callList();
-			// add products to cart
-
-			const capture = {
-				passive : true
-			  };
-			  
 			for(var i = 0; i < cartAddBtns.length; i++) {(function(i){
 				console.log(cartAddBtns[i])
 				cartAddBtns[i].addEventListener('click', addToCart);
-				console.log("asd")
-				//$(this).on('click', addToCart);
 			})(i);}
-			// $(".js-cd-add-to-cart").each(function(){
-			// 	console.log(cartAddBtns)
-			// 			// Test if the div element is empty
-			// 			$(document).on('click', addToCart);
-			// 		});
-			
 
+	
 			// open/close cart
 			cart[0].getElementsByClassName('cd-cart__trigger')[0].addEventListener('click', function(event){
 				event.preventDefault();
@@ -80,6 +65,8 @@ function goesss(){
 			event.preventDefault();
 			if(animatingQuantity) return;
 			var cartIsEmpty = Util.hasClass(cart[0], 'cd-cart--empty');
+
+
 			//update cart product list
 			addProduct(this);
 			//update number of items 
@@ -111,12 +98,14 @@ function goesss(){
 		};
 
 		function addProduct(target) {
+			var nama= target.getAttribute('data-nama');
+			var harga= target.getAttribute('data-price');
 			// this is just a product placeholder
 			// you should insert an item with the selected product info
 			// replace productId, productName, price and url with your real product info
 			// you should also check if the product was already in the cart -> if it is, just update the quantity
 			productId = productId + 1;
-			var productAdded = '<li class="cd-cart__product"><div class="cd-cart__image"><a href="#0"><img src="assets/img/product-preview.png" alt="placeholder"></a></div><div class="cd-cart__details"><h3 class="truncate"><a href="#0">Product Name</a></h3><span class="cd-cart__price">$25.99</span><div class="cd-cart__actions"><a href="#0" class="cd-cart__delete-item">Delete</a><div class="cd-cart__quantity"><label for="cd-product-'+ productId +'">Qty</label><span class="cd-cart__select"><select class="reset" id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select><svg class="icon" viewBox="0 0 12 12"><polyline fill="none" stroke="currentColor" points="2,4 6,8 10,4 "/></svg></span></div></div></div></li>';
+			var productAdded = '<li class="cd-cart__product"><div class="cd-cart__image"><a href="#0"><img src="assets/cart/img/product-preview.png" alt="placeholder"></a></div><div class="cd-cart__details"><h3 class="truncate"><a href="#0">'+nama+'</a></h3><span class="cd-cart__price">Rp. '+harga+'</span><div class="cd-cart__actions"><a href="#0" class="cd-cart__delete-item">Delete</a><div class="cd-cart__quantity"><label for="cd-product-'+ productId +'">Qty</label><span class="cd-cart__select"><select class="reset" id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select><svg class="icon" viewBox="0 0 12 12"><polyline fill="none" stroke="currentColor" points="2,4 6,8 10,4 "/></svg></span></div></div></div></li>';
 			cartList.insertAdjacentHTML('beforeend', productAdded);
 		};
 
@@ -126,7 +115,7 @@ function goesss(){
 			
 			var topPosition = product.offsetTop,
 				productQuantity = Number(product.getElementsByTagName('select')[0].value),
-				productTotPrice = Number((product.getElementsByClassName('cd-cart__price')[0].innerText).replace('$', '')) * productQuantity;
+				productTotPrice = Number((product.getElementsByClassName('cd-cart__price')[0].innerText).replace('Rp ', '')) * productQuantity;
 
 			product.style.top = topPosition+'px';
 			Util.addClass(product, 'cd-cart__product--deleted');
@@ -184,7 +173,7 @@ function goesss(){
 		};
 
 		function updateCartTotal(price, bool) {
-			cartTotal.innerText = bool ? (Number(cartTotal.innerText) + Number(price)).toFixed(2) : (Number(cartTotal.innerText) - Number(price)).toFixed(2);
+			cartTotal.innerText = bool ? (Number(cartTotal.innerText) + Number(price)).toFixed(0) : (Number(cartTotal.innerText) - Number(price)).toFixed(0);
 		};
 
 		function quickUpdateCart() {
@@ -195,13 +184,13 @@ function goesss(){
 				if( !Util.hasClass(cartListItems[i], 'cd-cart__product--deleted') ) {
 					var singleQuantity = Number(cartListItems[i].getElementsByTagName('select')[0].value);
 					quantity = quantity + singleQuantity;
-					price = price + singleQuantity*Number((cartListItems[i].getElementsByClassName('cd-cart__price')[0].innerText).replace('$', ''));
+					price = price + singleQuantity*Number((cartListItems[i].getElementsByClassName('cd-cart__price')[0].innerText).replace('Rp. ', ''));
 				}
 			}
 
-			cartTotal.innerText = price.toFixed(2);
+			cartTotal.innerText = price.toFixed(0);
 			cartCountItems[0].innerText = quantity;
 			cartCountItems[1].innerText = quantity+1;
 		};
   }
-};
+})();

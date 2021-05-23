@@ -10,17 +10,17 @@ xmlhttp.onreadystatechange = function () {
       let harga = data[i]["gsx$harga"]["$t"];
       let menu = data[i]["gsx$menu"]["$t"];
 
+      var x = document.getElementById("menuz");
 
       if(menu=='yes'){
-        var x = document.getElementById("menu");
         x.innerHTML +=
         "<tr>" +
           "<td>" + nama + "</td>" +
           "<td>" + harga + "</td>" +
-          "<td>" + "<a href=\"#0\" class=\"cd-add-to-cart js-cd-add-to-cart\" data-price=\""+harga+"\">Add To Cart</a>" + "</td>" +
+          "<td>" + "<a href=\"#0\" class=\"cd-add-to-cart js-cd-add-to-cart\" data-price=\""+harga+"\" data-nama=\""+nama+"\">Add To Cart</a>" + "</td>" +
         "</tr>";
       }else{
-        var x = document.getElementById("menu");
+        // var x = document.getElementById("menuz");
         x.innerHTML +=
         "<tr id=\""+harga+"\" class=\"table-info\">"+
           "<th colspan=\"3\">"+nama+"</th>"+
