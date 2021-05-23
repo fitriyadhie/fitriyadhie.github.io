@@ -12,32 +12,17 @@ xmlhttp.onreadystatechange = function () {
 
 
       if(menu=='yes'){
-        var menuz = document.getElementById("menu");
-        var aEl  = document.createElement("a");
-        menuz.innerHTML +=
+        var x = document.getElementById("menu");
+        x.innerHTML +=
         "<tr>" +
           "<td>" + nama + "</td>" +
           "<td>" + harga + "</td>" +
           "<td>" + "<a href=\"#0\" class=\"cd-add-to-cart js-cd-add-to-cart\" data-price=\""+harga+"\">Add To Cart</a>" + "</td>" +
         "</tr>";
-        //menuz.appendChild(menuz);
-        // var x = document.getElementById("menu");
-        // x.innerHTML +=
-        // "<tr>" +
-        //   "<td>" + nama + "</td>" +
-        //   "<td>" + harga + "</td>" +
-        //   "<td>" + "<a href=\"#0\" class=\"cd-add-to-cart js-cd-add-to-cart\" data-price=\""+harga+"\">Add To Cart</a>" + "</td>" +
-        // "</tr>";
-        // $( "#menu" ).append( "<tr>" +
-        //   "<td>" + nama + "</td>" +
-        //   "<td>" + harga + "</td>" +
-        //   "<td>" + "<a href=\"#0\" class=\"cd-add-to-cart js-cd-add-to-cart\" data-price=\""+harga+"\">Add To Cart</a>" + "</td>" +
-        // "</tr>" );
       }else{
         var x = document.getElementById("menu");
-      //let x = row.insertCell(-1);
         x.innerHTML +=
-        "<tr class=\"table-info\">"+
+        "<tr id=\""+harga+"\" class=\"table-info\">"+
           "<th colspan=\"3\">"+nama+"</th>"+
         "</tr>";
       }
@@ -52,3 +37,4 @@ xmlhttp.open(
   true
 );
 xmlhttp.send();
+

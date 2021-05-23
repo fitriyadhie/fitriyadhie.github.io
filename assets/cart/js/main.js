@@ -1,4 +1,4 @@
-(function(){
+function goesss(){
   // Add to Cart Interaction - by CodyHouse.co
   var cart = document.getElementsByClassName('js-cd-cart');
   if(cart.length > 0) {
@@ -204,4 +204,4 @@
 			cartCountItems[1].innerText = quantity+1;
 		};
   }
-})();
+};
