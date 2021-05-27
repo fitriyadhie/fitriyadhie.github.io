@@ -1,6 +1,8 @@
 var script_url = "https://script.google.com/macros/s/AKfycbyOnqGhY7FQ6EEFz4SR7-kxpHYvuBv2kmi1s5mrXwGVjpLKbCjTT6OlNGf4dXUgSwn0/exec";
 
 function save() {
+    $(".cd-cart__checkout").remove();
+    $(".cd-cart__footer").html('<a href="#0" class="cd-cart__checkout"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></a>')
 
     var listNama =[]; 
     var listHarga =[]; 
