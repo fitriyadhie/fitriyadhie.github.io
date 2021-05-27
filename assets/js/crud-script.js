@@ -1,4 +1,38 @@
-  var script_url = "https://script.google.com/macros/s/AKfycbyOnqGhY7FQ6EEFz4SR7-kxpHYvuBv2kmi1s5mrXwGVjpLKbCjTT6OlNGf4dXUgSwn0/exec";
+var script_url = "https://script.google.com/macros/s/AKfycbyOnqGhY7FQ6EEFz4SR7-kxpHYvuBv2kmi1s5mrXwGVjpLKbCjTT6OlNGf4dXUgSwn0/exec";
+
+function save() {
+
+    var listNama =[]; 
+    var listHarga =[]; 
+    var listQty =[];
+
+        $('.cd-cart__product').each(function(){
+            var nama = this.getAttribute('data-nama')
+            var harga = this.getAttribute('data-harga')
+            var productId = this.getAttribute('data-productId')
+            var qty = $('#cd-product-'+productId+' :selected').text()
+
+            listNama.push(nama)
+            listHarga.push(harga)
+            listQty.push(qty)
+
+        }); 
+        console.log(listNama) 
+        console.log(listHarga) 
+        console.log(listQty)
+
+        var url = script_url+"?callback=ctrlq&nama="+listNama.join()+"&harga="+listHarga.join()+"&qty="+listQty.join()+"&action=insert";
+
+        console.log(url)
+
+        var request = jQuery.ajax({
+            crossDomain: true,
+            url: url ,
+            method: "GET",
+            dataType: "jsonp"
+        });
+}
+  
   
   // Make an AJAX call to Google Script
   function insert_value() {
@@ -22,12 +56,6 @@
     });
 
   }
-
-
-  
-  
- 
-  
   
   function update_value(){
 	$("#re").css("visibility","hidden");
@@ -82,11 +110,15 @@ var id1=	$("#id").val();
   // print the returned data
   function ctrlq(e) {
   
-	
-	$("#re").html(e.result);
-	$("#re").css("visibility","visible");
+    alert(e.result)
+    location.reload();
+    // $(".cd-cart__footer").css("backgroud-color","green")
+    
+	// $("#re").html(e.result);
+	// $("#re").css("visibility","visible");
 	//read_value();
-	
+	// location.reload();
+
   }
   
   
