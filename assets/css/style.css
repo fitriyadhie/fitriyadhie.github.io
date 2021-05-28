@@ -67,4 +67,9 @@ a, .link {
       transform: translate(24px, 0);
     }
   }
+  .cd-cart__body-title{
+      padding-top: 13px;
+      padding-left: 13px;
+      padding-right: 13px;
+  }
   

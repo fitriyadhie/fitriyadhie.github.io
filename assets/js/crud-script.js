@@ -8,6 +8,9 @@ function save() {
     var listHarga =[]; 
     var listQty =[];
 
+    var user = $( "#nama-p" ).val();
+    var catatan = $( "#catatan" ).val();
+
         $('.cd-cart__product').each(function(){
             var nama = this.getAttribute('data-nama')
             var harga = this.getAttribute('data-harga')
@@ -23,7 +26,7 @@ function save() {
         console.log(listHarga) 
         console.log(listQty)
 
-        var url = script_url+"?callback=ctrlq&nama="+listNama.join()+"&harga="+listHarga.join()+"&qty="+listQty.join()+"&action=insert";
+        var url = script_url+"?callback=ctrlq&nama="+listNama.join()+"&harga="+listHarga.join()+"&qty="+listQty.join()+"&user="+user+"&catatan="+catatan+"&action=insert";
 
         console.log(url)
 
