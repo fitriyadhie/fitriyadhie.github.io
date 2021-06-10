@@ -1,4 +1,4 @@
-var script_url = "https://script.google.com/macros/s/AKfycbyOnqGhY7FQ6EEFz4SR7-kxpHYvuBv2kmi1s5mrXwGVjpLKbCjTT6OlNGf4dXUgSwn0/exec";
+var script_url = "https://script.google.com/macros/s/AKfycbxgpNEAvL-7m0E4Jnff61ayRYFG20CshVJ1sZtBH4l3JmqMAHNnpaauwomHAsePwoyG/exec";
 
 function save() {
     $(".cd-cart__checkout").remove();
@@ -7,6 +7,7 @@ function save() {
     var listNama =[]; 
     var listHarga =[]; 
     var listQty =[];
+    var listBahan =[];
 
     var user = $( "#nama-p" ).val();
     var catatan = $( "#catatan" ).val();
@@ -14,19 +15,22 @@ function save() {
         $('.cd-cart__product').each(function(){
             var nama = this.getAttribute('data-nama')
             var harga = this.getAttribute('data-harga')
+            var bahan = this.getAttribute('data-bahan')
             var productId = this.getAttribute('data-productId')
             var qty = $('#cd-product-'+productId+' :selected').text()
 
             listNama.push(nama)
             listHarga.push(harga)
             listQty.push(qty)
+            listBahan.push(bahan)
 
         }); 
         console.log(listNama) 
         console.log(listHarga) 
         console.log(listQty)
+        console.log(listBahan)
 
-        var url = script_url+"?callback=ctrlq&nama="+listNama.join()+"&harga="+listHarga.join()+"&qty="+listQty.join()+"&user="+user+"&catatan="+catatan+"&action=insert";
+        var url = script_url+"?callback=ctrlq&nama="+listNama.join()+"&harga="+listHarga.join()+"&qty="+listQty.join()+"&user="+user+"&catatan="+catatan+"&bahan="+listBahan.join()+"&action=insert";
 
         console.log(url)
 

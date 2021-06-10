@@ -10,6 +10,7 @@ function read_list_menu() {
             let nama = json.records[i].Nama;
             let harga = json.records[i].Harga;
             let menu = json.records[i].Menu;
+            let bahan = json.records[i].Bahan;
       
             var x = document.getElementById("list-menu");
       
@@ -18,7 +19,7 @@ function read_list_menu() {
               "<tr>" +
                 "<td>" + nama + "</td>" +
                 "<td>" + harga + "</td>" +
-                "<td>" + "<a href=\"#0\" class=\"cd-add-to-cart js-cd-add-to-cart\" data-price=\""+harga+"\" data-nama=\""+nama+"\">Add To Cart</a>" + "</td>" +
+                "<td>" + "<a href=\"#0\" class=\"cd-add-to-cart js-cd-add-to-cart\" data-price=\""+harga+"\" data-nama=\""+nama+"\" data-bahan=\""+bahan+"\">Add To Cart</a>" + "</td>" +
               "</tr>";
             }else{
               x.innerHTML +=
