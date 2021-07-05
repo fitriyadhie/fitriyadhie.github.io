@@ -10,6 +10,9 @@
 
     <!-- Mine -->
     <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Datatable -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+
     <title>JP Sragi</title>
   </head>
   <body>
@@ -59,14 +62,17 @@
         </div>
     </nav>
 
-
-    <table class="table">
-        <tr class="list-stok">
-            <th scope="col">Nama</th>
-            <th scope="col">Stok</th>
-        </tr>
-        <tbody id="list-stok"></tbody>
+    <table id="table_stok" class="table display">
+      <thead>
+          <tr>
+              <th>Nama</th>
+              <th>Stok</th>
+          </tr>
+      </thead>
+      <tbody id="list-stok"></tbody>
     </table>
+    
+
     <div class="load-list lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 
     <!-- Optional JavaScript -->
@@ -76,6 +82,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- End js Cart -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Datatable -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
     <script src="../assets/js/initial-var.js"></script>
     <script src="../assets/js/stok.js"></script> 
 

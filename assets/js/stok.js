@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    read_list_stok()
+    read_list_stok();
 });
 
 function read_list_stok() {
@@ -11,15 +11,25 @@ function read_list_stok() {
             let stok = json.records[i].Stok;
             var x = document.getElementById("list-stok");
 
-            if(stok <= 10){
+            if(stok <= 15){
                 x.innerHTML +=
                 "<tr>" +
                     "<td>" + nama + "</td>" +
                     "<td><div class=\"alert alert-danger\" role=\"alert\">" + stok + "</div></td>" +
                 "</tr>";
+            }else {
+                x.innerHTML +=
+                "<tr>" +
+                    "<td>" + nama + "</td>" +
+                    "<td><div class=\"alert alert-primary\" role=\"alert\">" + stok + "</div></td>" +
+                "</tr>";
             }
         }
 
          $(".load-list").remove();
+
+         $('#table_stok').DataTable( {
+            "order": [[ 1, "asc" ]]
+        });
     });
 }
